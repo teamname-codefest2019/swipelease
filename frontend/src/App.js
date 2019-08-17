@@ -1,4 +1,5 @@
-import React from 'react';
+// import React from 'react';
+import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -14,19 +15,24 @@ function App() {
       <div>
         <Route path="/login"
                component={Login} 
-               render={(props) => <Dashboard {...props} isAuthed={authStatus}/>}
+               
         />
         <Route path="/register"
                component={Register} 
-               render={(props) => <Dashboard {...props}/>}
+               
         />
         <Route path="/home"
                component={Homepage} 
-               render={(props) => <Dashboard {...props} isAuthed={authStatus}/>}
+               
         />
         <Route path="/user" // example URL: .../user?id=200193454
                component={Profile} 
-               render={(props) => <Dashboard {...props} isAuthed={authStatus}/>}
+              
+        />
+
+        <Route path="/leaderboard" 
+               component={Leaderboard} 
+              
         />
       </div>
     </Router>
@@ -44,6 +50,12 @@ function Login(isAuthed) {
   );
 }
 
+function Register() {
+  return (
+    <div id="register"></div>
+  );
+}
+
 function Homepage() {
   return (
     <div id="homepage"></div>
@@ -56,4 +68,61 @@ function Profile() {
  );
 }
 
+function Leaderboard() {
+  return (
+   <div id="leaderboard">
+    
+    <Table />
+  
+   </div>
+  );
+ }
+class Table extends React.Component {
+  constructor(props) {
+     super(props)
+     this.state = {
+        users: [
+           { id: 1, name: 'Wasif', rating: 5.0, email: 'wasif@email.com' },
+           { id: 2, name: 'Ali', rating: 4.9, email: 'ali@email.com' },
+           { id: 3, name: 'Saad', rating: 4.6, email: 'saad@email.com' },
+           { id: 4, name: 'Asad', rating: 4.0, email: 'asad@email.com' }
+        ]
+     }
+  }
+
+  renderTableHeader() {
+     let header = Object.keys(this.state.users[0])
+     return header.map((key, index) => {
+        return <th key={index}>{key.toUpperCase()}</th>
+     })
+  }
+
+  renderTableData() {
+     return this.state.users.map((users, index) => {
+        const { id, name, rating, email } = users //destructuring
+        return (
+           <tr key={id}>
+              <td>{id}</td>
+              <td>{name}</td>
+              <td>{rating}</td>
+              <td>{email}</td>
+           </tr>
+        )
+     })
+  }
+
+  render() {
+     return (
+        <div>
+           <h1 id='title'>Leaderboard</h1>
+           <table id='users'>
+              <tbody>
+                 <tr>{this.renderTableHeader()}</tr>
+                 {this.renderTableData()}
+              </tbody>
+           </table>
+        </div>
+     )
+  }
+}
 export default App;
