@@ -53,7 +53,11 @@ function Register() {
 function Homepage() {
   return (
     <div id="homepage">
-      <p>Homepage stuffs here</p>
+      <body>
+        <h1>Servable</h1>
+        <img src = "codefest.jpg" alt="Team" width="500" height="600">
+      <p>Homepage stuffs here howdy</p>
+      </body>
     </div>
   );
 }
