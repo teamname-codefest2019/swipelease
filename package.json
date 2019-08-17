@@ -1,0 +1,20 @@
+{
+  "name": "swipelease",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/teamname-codefest2019/swipelease.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teamname-codefest2019/swipelease/issues"
+  },
+  "homepage": "https://github.com/teamname-codefest2019/swipelease#readme"
+}
