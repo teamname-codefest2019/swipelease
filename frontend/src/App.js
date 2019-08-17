@@ -1,15 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import { Button } from 'react-bootstrap';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+// import { Button } from 'react-bootstrap';
 import Login from './containers/Login';
 
 function App() {
-
-  var authStatus;
-
   return (
     <Router>
       <div>
@@ -30,12 +27,7 @@ function App() {
   );
 }
 
-function LoginPage(isAuthed) {
-
-  if (isAuthed) {
-    this.props.router.push('/home')
-  }
-
+function LoginPage() {
   return (
     <Login/>
   );

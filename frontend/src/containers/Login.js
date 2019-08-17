@@ -1,6 +1,8 @@
-import React, { Component } from "react";
-import { Button, Form, Jumbotron, Container } from "react-bootstrap";
+import React, { Component } from 'react';
 
+import { Button, Form, Jumbotron, Container } from 'react-bootstrap';
+import { Redirect } from 'react-router'
+import Axios from 'axios';
 import './Login.css';
 
 export default class Login extends Component {
@@ -8,13 +10,14 @@ export default class Login extends Component {
         super(props);
 
         this.state = {
-            email: "",
+            loggedIn: false,
+            username: "",
             password: ""
         };
     }
 
     validateForm() {
-        return this.state.email.length > 0 && this.state.password.length > 0;
+        return this.state.username.length > 0 && this.state.password.length > 0;
     }
 
     handleChange = event => {
@@ -25,25 +28,41 @@ export default class Login extends Component {
 
     handleSubmit = event => {
         event.preventDefault();
-        // submit form logic here
+
+        Axios.post("https://servable1.herokuapp.com/api/auth/login", this.state).then(res => {
+            console.log(res);
+            this.setState({
+                ...this.state,
+                loggedIn: true,
+                password: ""
+            });
+        }).catch(err => {
+            console.log(err);
+        });
+
+        if (this.state.loggedIn) {
+            return (
+                <Redirect to="/home"></Redirect>
+            );
+        }
     }
 
     render() {
         return (
-            <div className="Login" style="height:100vh;width=100vw">
-                <Jumbotron fluid>
+            <div id="Login" className="loginform">
+                <Jumbotron>
                     <Container>
-                        <form onSubmit={this.handleSubmit}>
-                            <Form.Group controlId="email" bsSize="large">
-                                <Form.Label>Email</Form.Label>
+                        <Form onSubmit={this.handleSubmit}>
+                            <Form.Group controlId="username" size="lg">
+                                <Form.Label>Username</Form.Label>
                                 <Form.Control
                                     autoFocus
-                                    type="email"
-                                    value={this.state.email}
+                                    type="username"
+                                    value={this.state.username}
                                     onChange={this.handleChange}
                                 />
                             </Form.Group>
-                            <Form.Group controlId="password" bsSize="large">
+                            <Form.Group controlId="password" size="lg">
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control
                                     value={this.state.password}
@@ -51,13 +70,13 @@ export default class Login extends Component {
                                     type="password"
                                 />
                             </Form.Group>
-                            <Button
-                                block
-                                bsSize="large"
-                                disabled={!this.validateForm()}
-                                type="submit"
-                            >Login</Button>
-                        </form>
+                            <Button variant="primary" 
+                                    size="lg" 
+                                    disabled={!this.validateForm()} 
+                                    type="submit">
+                                Login
+                            </Button>
+                        </Form>
                     </Container>
                 </Jumbotron>
             </div>
