@@ -4,6 +4,7 @@ import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
+import Login from './containers/Login';
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
     <Router>
       <div>
         <Route path="/login"
-               component={Login} 
+               component={LoginPage} 
         />
         <Route path="/register"
                component={Register} 
@@ -29,16 +30,14 @@ function App() {
   );
 }
 
-function Login(isAuthed) {
+function LoginPage(isAuthed) {
 
   if (isAuthed) {
     this.props.router.push('/home')
   }
 
   return (
-    <div id="login">
-      <p>The login page</p>
-    </div>
+    <Login/>
   );
 }
 
