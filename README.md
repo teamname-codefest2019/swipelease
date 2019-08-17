@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to swipelease 👋</h1>
+<h1 align="center">Welcome to servable 👋</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/teamname-codefest2019/swipelease#readme">
