@@ -5,13 +5,16 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 // import { Button } from 'react-bootstrap';
 import Login from './containers/Login';
+import { createBrowserHistory } from 'history';
+
+// const history = createBrowserHistory();
 
 function App() {
   return (
     <Router>
       <div>
         <Route path="/login"
-               component={LoginPage} 
+               render={props => <Login {...props} />} 
         />
         <Route path="/register"
                component={Register} 

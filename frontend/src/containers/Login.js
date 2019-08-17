@@ -41,9 +41,7 @@ export default class Login extends Component {
         });
 
         if (this.state.loggedIn) {
-            return (
-                <Redirect to="/home"></Redirect>
-            );
+            this.props.history.push('/home');
         }
     }
 
