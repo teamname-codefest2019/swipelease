@@ -31,9 +31,9 @@ function App() {
 
 function Login(isAuthed) {
 
-  if (isAuthed) {
-    this.props.router.push('/home')
-  }
+  // if (isAuthed) {
+  //   this.props.router.push('/home')
+  // }
 
   return (
     <div id="login">
@@ -53,7 +53,7 @@ function Register() {
 function Homepage() {
   return (
     <div id="homepage">
-      <p>The homepage</p>
+      <p>Homepage stuffs here</p>
     </div>
   );
 }
