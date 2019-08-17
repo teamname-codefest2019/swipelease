@@ -3,7 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function App() {
 
@@ -14,19 +14,15 @@ function App() {
       <div>
         <Route path="/login"
                component={Login} 
-               render={(props) => <Dashboard {...props} isAuthed={authStatus}/>}
         />
         <Route path="/register"
                component={Register} 
-               render={(props) => <Dashboard {...props}/>}
         />
         <Route path="/home"
                component={Homepage} 
-               render={(props) => <Dashboard {...props} isAuthed={authStatus}/>}
         />
         <Route path="/user" // example URL: .../user?id=200193454
                component={Profile} 
-               render={(props) => <Dashboard {...props} isAuthed={authStatus}/>}
         />
       </div>
     </Router>
@@ -40,13 +36,25 @@ function Login(isAuthed) {
   }
 
   return (
-    <div id="login"></div>
+    <div id="login">
+      <p>The login page</p>
+    </div>
   );
+}
+
+function Register() {
+  return (
+    <div id="register">
+      <p>The register page</p>
+    </div>
+  )
 }
 
 function Homepage() {
   return (
-    <div id="homepage"></div>
+    <div id="homepage">
+      <p>The homepage</p>
+    </div>
   );
 }
 
