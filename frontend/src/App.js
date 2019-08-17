@@ -54,18 +54,19 @@ function Homepage() {
   return (
     <div id="homepage">
       <body>
+      <center>
         <h1>Servable</h1>
-        <img src = "codefest.jpg" alt="Team" width="500" height="600">
-      <p>Homepage stuffs here howdy</p>
+        <img src = "codefest.jpg" alt="Team" width="500" height="600"/>
+      <p >Homepage stuffs here howdy</p>
+      </center>
       </body>
     </div>
-  );
+  )
 }
 
 function Profile() {
  return (
   <div id="profile"></div>
- );
+ )
 }
-
 export default App;
