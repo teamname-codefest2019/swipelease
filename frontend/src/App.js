@@ -2,6 +2,8 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+//import './slide.js'
+
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
 
@@ -54,14 +56,36 @@ function Homepage() {
   return (
     <div id="homepage">
       <body>
-      <center>
         <h1>Servable</h1>
-        <img src = "codefest.jpg" alt="Team" width="500" height="600"/>
-      <p >Homepage stuffs here howdy</p>
-      </center>
-      </body>
+      <div class="slideshow-container">
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="codefest.jpg" alt="image1" style={{width: "100%", display: "block"}} />
+          <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="swipe.jpg" alt="image1" style={{width: "100%", display: "block"}} />
+          <div class="text">Caption Text</div>
+        </div>
+
+        <div class="mySlides fade">
+          <div class="numbertext">1 / 3</div>
+          <img src="swipe2.jpg" alt="image1" style={{width: "100%", display: "block"}} />
+          <div class="text">Caption Text</div>
+      </div>
+
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+      </div>
+      
+    </body>
+      
     </div>
-  )
+  );
 }
 
 function Profile() {
@@ -69,4 +93,6 @@ function Profile() {
   <div id="profile"></div>
  )
 }
+
+
 export default App;
