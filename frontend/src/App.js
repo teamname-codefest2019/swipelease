@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
+import reactSwipe from 'react-swipe';
 import logo from './logo.svg';
 import './App.css';
 
@@ -53,6 +55,7 @@ function Register() {
 }
 
 function Homepage() {
+  let reactSwipeEl;
   return (
     <div id="homepage">
       <body>
@@ -78,12 +81,11 @@ function Homepage() {
       </div>
 
 
-        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <a class="prev" onclick={() => reactSwipeEl.next()}>&#10094;</a>
+        <a class="next" onclick={() => reactSwipeEl.prev()}>&#10095;</a>
       </div>
       
     </body>
-      
     </div>
   );
 }
